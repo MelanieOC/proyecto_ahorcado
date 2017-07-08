@@ -64,7 +64,7 @@ function validar() { //funcion que valida si se encontro la palabra ingresada
   }
   document.getElementById('resultado').innerHTML = dibujo;//se imprime el dibujo
   if(fallos == 10){
-    alert('Perdiste'); //si se llega a diez fallos perdió
+    alert('Perdiste' + '\n' + 'La palabra era: ' + obtenerPalabraSecreta().join('')); //si se llega a diez fallos perdió
   }
 
   document.getElementById('letra').value = ''; //se borra el valor anterior para que llene de nuevo
