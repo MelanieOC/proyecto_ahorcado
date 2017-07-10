@@ -19,7 +19,7 @@ var hombre =  [        "______" + '<br/>',
                        "\\\n  " + '<br/>',
                        "______" + '<br/>'];
 
-var palabra = obtenerPalabraSecreta (); //se obtiene la palabra aleatoria
+var palabra = obtenerPalabraSecreta();//se obtiene la palabra aleatoria
 var letras = []; // se crea un array para las letras que se vaya "adivinando"
 function palabraSecreta() { //funcion que encripta la palabra aleatoria
   var start='';
@@ -33,26 +33,26 @@ function inicio() { //funcion inicio, que muestra en la pantalla la palabra encr
 }
 
 function imprimirletra(letras) { //funcion que muestra las letras encontradas
-  var start=palabraSecreta().split(''); //la palabra aleatoria se divide en elementos de un array
+  var start=palabraSecreta().split(''); //la palabra encriptada se divide en elementos de un array
   for (var i = 0; i < palabra.length;i++){
     for(var j = 0; j< letras.length;j++){//se evalua cada letra de ambos arrays
       if(letras[j]==palabra[i]){
-        start[i] = letras[j];
+        start[i] = letras[j];//se reemplaza un asterico por letra encontrada en la posicion que corresponde
       }
     }
   }
-  if(start.indexOf('*')==-1){
+  if(start.indexOf('*')==-1){ //si ya no se encuentra ningun asterico se indica al usuario que ganó el juego
     alert('Ganaste!!!')
   }
   document.getElementById('adivinando').innerHTML ='Adivinando: ' + start.join('');
 }
 
 function validar() { //funcion que valida si se encontro la palabra ingresada
-  var a = document.getElementById('letra').value.toLowerCase();
-  if(a==''){
+  var letra = document.getElementById('letra').value.toLowerCase();//letra ingresada, discriminando si es mayuscula o minuscula
+  if(letra==''){ //si no se ingresa nada
     alert('Ingresa una letra')
   } else {
-    letras.push(a); //se agrega al array letras las letras ingresadas
+    letras.push(a); //se agrega al array letras la letra ingresada
   }
 
   var fallos = 0;
@@ -62,7 +62,7 @@ function validar() { //funcion que valida si se encontro la palabra ingresada
     }
   }
   imprimirletra(letras); //se imprime las letras encontradas
-  document.getElementById('usadas').innerHTML ='Letras utilizadas: ' + letras; //se imprime las letras que se ingresa
+  document.getElementById('utilizadas').innerHTML ='Letras utilizadas:' + '<br/>' + letras; //se imprime las letras que se ingresa
   var dibujo = '';
   for(var i = 0; i < fallos; i++){
      dibujo += hombre[i]; //se crea un string con la figura del ahorcado dependiendo de la cantidad de fallos
@@ -72,5 +72,13 @@ function validar() { //funcion que valida si se encontro la palabra ingresada
     alert('Perdiste\n' + 'La palabra era: ' + palabra.join('')); //si se llega a diez fallos perdió
   }
 
-  document.getElementById('letra').value = ''; //se borra el valor anterior para que llene de nuevo
+  document.getElementById('letra').value = ''; //se borra el valor anterior en la caja de texto para que llene de nuevo
+}
+function Reiniciar() { //funcion para volver a jugar
+  palabra = obtenerPalabraSecreta();
+  inicio();
+  document.getElementById('utilizadas').innerHTML='';
+  document.getElementById('adivinando').innerHTML='';
+  document.getElementById('resultado').innerHTML='';
+  letras = [];
 }

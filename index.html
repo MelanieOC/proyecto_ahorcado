@@ -7,31 +7,36 @@
   <body>
     <div align="center">
       <h1 >Ahorcado</h1>
-      <div style="font-size:120%;">
+      <div style="font-size:110%;">
         <p>Descubre la palabra secreta. Solo puedes fallar diez veces. <p/>
         <p>
           <button style="font-family:Comic Sans MS;font-size:105%;" onclick="inicio()"> A jugar! </button>
         </p>
+        <p>
+          <span id = 'palabra'></span>
+        </p>
       </div>
     <table>
     <tr>
-      <th>
+      <th style="width:60%">
         <div style="font-size:120%;">
-          <span id = 'palabra'></span>
           <p>
             Letra: <input type="text" id="letra" size="2" />
             <button style="font-family:Comic Sans MS;" onclick="validar()">Validar</button>
           </p>
         </div>
-        <p> <span id = 'usadas'></span> </p>
+        <p> <span id = 'utilizadas'></span> </p>
         <p style="font-size:110%;"> <span id = 'adivinando'></span> </p>
       </th>
-      <th>
+      <th style="width:40%">
         <div style="font-size:130%;" id="resultado" align='center'>
         </div>
       </th>
     </tr>
   </table>
+  <p>
+    <button style="font-family:Comic Sans MS;font-size:70%;" onclick="Reiniciar()"> Volver a jugar </button>
+  </p>
   <script src="js/ahorcado.js"></script>
   </div>
   </body>
