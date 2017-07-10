@@ -47,7 +47,7 @@ function imprimirletra(letras) { //funcion que muestra las letras encontradas
   document.getElementById('palabra').innerHTML ='Adivinando: ' + start.join('');
 }
 
-function validar() { //funcion que valida si se encontro la palabra ingresada
+function validar() { //funcion que valida si se encontro la letra ingresada
   var letra = document.getElementById('letra').value.toLowerCase();//letra ingresada, discriminando si es mayuscula o minuscula
   if(letra==''){ //si no se ingresa nada
     alert('Ingresa una letra')
