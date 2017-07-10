@@ -52,7 +52,7 @@ function validar() { //funcion que valida si se encontro la palabra ingresada
   if(letra==''){ //si no se ingresa nada
     alert('Ingresa una letra')
   } else {
-    letras.push(a); //se agrega al array letras la letra ingresada
+    letras.push(letra); //se agrega al array letras la letra ingresada
   }
 
   var fallos = 0;
