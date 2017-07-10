@@ -48,8 +48,13 @@ function imprimirletra(letras) { //funcion que muestra las letras encontradas
 }
 
 function validar() { //funcion que valida si se encontro la palabra ingresada
-  var a = document.getElementById('letra').value;
-  letras.push(a); //se agrega al array letras las letras ingresadas
+  var a = document.getElementById('letra').value.toLowerCase();
+  if(a==''){
+    alert('Ingresa una letra')
+  } else {
+    letras.push(a); //se agrega al array letras las letras ingresadas
+  }
+
   var fallos = 0;
   for(var i =0; i < letras.length; i ++){
     if(palabra.indexOf(letras[i])==-1){
@@ -64,7 +69,7 @@ function validar() { //funcion que valida si se encontro la palabra ingresada
   }
   document.getElementById('resultado').innerHTML = dibujo;//se imprime el dibujo
   if(fallos == 10){
-    alert('Perdiste' + '\n' + 'La palabra era: ' + obtenerPalabraSecreta().join('')); //si se llega a diez fallos perdió
+    alert('Perdiste\n' + 'La palabra era: ' + palabra.join('')); //si se llega a diez fallos perdió
   }
 
   document.getElementById('letra').value = ''; //se borra el valor anterior para que llene de nuevo
