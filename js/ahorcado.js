@@ -44,7 +44,7 @@ function imprimirletra(letras) { //funcion que muestra las letras encontradas
   if(start.indexOf('*')==-1){ //si ya no se encuentra ningun asterico se indica al usuario que ganó el juego
     alert('Ganaste!!!')
   }
-  document.getElementById('adivinando').innerHTML ='Adivinando: ' + start.join('');
+  document.getElementById('palabra').innerHTML ='Adivinando: ' + start.join('');
 }
 
 function validar() { //funcion que valida si se encontro la palabra ingresada
